@@ -1,6 +1,6 @@
 FROM quay.io/vektorcloud/base:latest
 
-ENV ALPINE_GLIBC_VERSION 2.22-r8
+ENV ALPINE_GLIBC_VERSION 2.23-r1
 ENV ALPINE_GLIBC_BASE_URL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${ALPINE_GLIBC_VERSION}
 
 RUN wget -q "$ALPINE_GLIBC_BASE_URL/glibc-${ALPINE_GLIBC_VERSION}.apk" & \
