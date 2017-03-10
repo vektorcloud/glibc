@@ -1,10 +1,10 @@
-FROM quay.io/vektorcloud/base:3.4
+FROM quay.io/vektorcloud/base:3.5
 
-ENV ALPINE_GLIBC_VERSION 2.23-r1
-ENV ALPINE_GLIBC_BASE_URL https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${ALPINE_GLIBC_VERSION}
-ENV ALPINE_GLIBC_KEY_URL https://raw.githubusercontent.com/andyshinn/alpine-pkg-glibc/master/andyshinn.rsa.pub
+ENV ALPINE_GLIBC_VERSION 2.25-r0
+ENV ALPINE_GLIBC_BASE_URL https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${ALPINE_GLIBC_VERSION}
+ENV ALPINE_GLIBC_KEY_URL https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/sgerrand.rsa.pub
 
-RUN wget -q -O /etc/apk/keys/andyshinn.rsa.pub ${ALPINE_GLIBC_KEY_URL} && \
+RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub ${ALPINE_GLIBC_KEY_URL} && \
     wget -q "$ALPINE_GLIBC_BASE_URL/glibc-${ALPINE_GLIBC_VERSION}.apk" & \
     wget -q "$ALPINE_GLIBC_BASE_URL/glibc-bin-${ALPINE_GLIBC_VERSION}.apk" & \
     wget -q "$ALPINE_GLIBC_BASE_URL/glibc-i18n-${ALPINE_GLIBC_VERSION}.apk" & \
