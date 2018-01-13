@@ -1,6 +1,6 @@
-FROM quay.io/vektorcloud/base:3.6
+FROM quay.io/vektorcloud/base:3.7
 
-ENV ALPINE_GLIBC_VERSION 2.25-r0
+ENV ALPINE_GLIBC_VERSION 2.26-r0
 ENV ALPINE_GLIBC_BASE_URL https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${ALPINE_GLIBC_VERSION}
 ENV ALPINE_GLIBC_KEY_URL https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.25-r0/sgerrand.rsa.pub
 
