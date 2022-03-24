@@ -1,6 +1,6 @@
 FROM quay.io/vektorcloud/base:3.15
 
-ENV LANG=C.UTF-8
+ENV LANG=en_US.UTF-8
 
 ENV ALPINE_GLIBC_VERSION 2.35
 ENV ALPINE_GLIBC_RELEASE ${ALPINE_GLIBC_VERSION}-r0
@@ -14,6 +14,7 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub ${ALPINE_GLIBC_PUBKEY_URL} && \
     wget -q "${ALPINE_GLIBC_BASE_URL}/glibc-i18n-${ALPINE_GLIBC_RELEASE}.apk" & \
     wait && \
     apk add --no-cache *.apk && \
+    /usr/glibc-compat/sbin/ldconfig "/lib" "/usr/glibc-compat/lib/" && \
     /usr/glibc-compat/bin/localedef --force --inputfile POSIX --charmap UTF-8 "$LANG" ; \
     echo "export LANG=$LANG" > /etc/profile.d/locale.sh && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf && \
